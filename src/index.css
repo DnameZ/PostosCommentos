@@ -1,13 +1,24 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+ font-family: 'Righteous', cursive;
   -webkit-font-smoothing: antialiased;
+  height : 100vh;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ font-family: 'Righteous', cursive;
+}
+
+html{
+  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-width: thin;
+
+  background-image: url(./Assets/Images/Postos.jpg);
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-repeat:repeat;
+ background-size: cover;
+ background-position: center;
 }
