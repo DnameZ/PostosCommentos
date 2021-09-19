@@ -5,9 +5,11 @@ import { Images } from '../../Assets/Lib/generalStyles';
 import { PostsPage,
          TitleWrapper,
          Title,
-         PostCardContainer,
-         Header } from './PostsStyle';
+         PostCardContainer, } from './PostsStyle';
 
+
+
+import { getAllPosts } from '../../Api/GetPosts';
 import PostCard from '../../Components/PostCard/PostCard';
 
 const Posts = () => {
