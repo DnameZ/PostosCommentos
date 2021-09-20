@@ -2,9 +2,6 @@ import styled from 'styled-components';
 
 import { BreakPoints } from '../../Assets/Lib/generalStyles';
 
-import { Images } from '../../Assets/Lib/generalStyles';
-
-
 export const CardContainer=styled.div`
     display:flex;
     cursor:pointer;
@@ -38,8 +35,13 @@ export const CardContainer=styled.div`
 
 export const User=styled.img`
     position:absolute;
+    cursor:pointer;
     align-self:flex-end;
     height:35px;
+
+    &:hover{
+        display:block;
+    }
 
     @media screen and (${BreakPoints.mobileLarge}) {
         height:35px;

@@ -77,3 +77,19 @@ export const PostCardContainer=styled.div`
      
     `;
 
+export const SearchInputWrapper=styled.div`
+    display:flex;
+    position:absolute;
+    width:20%;
+    height:15%;`;
+
+export const SearchInput=styled.input`
+    align-self:flex-end;
+    outline:none;
+    background: #F8F8F8;
+    background: linear-gradient(to bottom right, #F8F8F8, #FFF101);
+    border-radius:26px;
+    text-align:center;
+    width:100%;
+    height:25%;`;
+

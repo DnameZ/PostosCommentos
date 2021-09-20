@@ -66,3 +66,43 @@ body {
   min-height: 100vh;
  font-family: 'Righteous', cursive;
 }
+
+
+.paggBttn {
+  border: none;
+  outline: none;
+  width: 100%;
+  position: absolute;
+  height: inherit;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.paggBttn a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border:none;
+  background: #565656;
+  color:white;
+  cursor: pointer;
+}
+
+.paggBttn a:hover{
+  color: white;
+  opacity: 1;
+  background: #565656;
+  background: linear-gradient(to top, #565656, #FCFE57);
+}
+
+
+.paggAcc a {
+  opacity: 1;
+  color: white;
+  background: #565656;
+  background: linear-gradient(to top, #565656, #FCFE57);
+}
+
+
