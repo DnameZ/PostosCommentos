@@ -10,9 +10,9 @@ import { CardContainer,
     Posts } from './PostCardStyle';
 
 
-export function PostCard ({classes,children,onMouseOver,...restProps}){
+export function PostCard ({classes,children,onClick,isPage,...restProps}){
     return (  
-        <CardContainer onMouseEnter={onMouseOver} className={classNames("CardContainer",classes)} {...restProps}>
+        <CardContainer isPage={isPage} onClick={onClick} className={ isPage==="/posts" ? classNames("CardContainer",classes) : classNames("CardContainerPost",classes) } {...restProps}>
             {children}
         </CardContainer>
     );

@@ -4,6 +4,7 @@ import { Context } from '../../Context/Context';
 import {getAllPosts} from "../../Api/GetPosts";
 import { getUseres } from '../../Api/GetPosts';
 import { PostCard } from '../../Components/PostCard/PostCard';
+import { useHistory } from 'react-router';
 
 import { 
     PostsPage,
@@ -14,15 +15,20 @@ import {
     SearchInput } from './PostsStyle';
 
 const Posts = () => {
-    let {Posts,SetPosts}=useContext(Context);
-    const {Users,SetUsers}=useContext(Context);
+    const {SetUsers}=useContext(Context);
     const [isLoading,SetIsLoading]=useState(true);
     const [pageNum,SetPageNum]=useState(0);
     const [text,SetText]=useState("");
     const TaskCardPerPage=8;
+    const History=useHistory();
+    const {GetUserName}=useContext(Context);
     const PageVisited=pageNum*TaskCardPerPage;
     const pageCount=Math.ceil(100/TaskCardPerPage);
     let [PaggedPosts]=useState([]);
+    let {Posts,SetPosts}=useContext(Context);
+    let {SetId}=useContext(Context);
+    let {SetUserId}=useContext(Context);
+
 
 
     const ChangePage=({selected})=>
@@ -45,13 +51,6 @@ const Posts = () => {
         })
     }
 
-    const GetUserName=(id)=>
-    {
-        let newUserName=  Users.find((user)=>user.id===id);
-
-        return  newUserName?.username;
-    }
-
     const hadleInputChange=(InputValue)=>
     {
         SetText(InputValue.target.value);
@@ -67,6 +66,15 @@ const Posts = () => {
             return GetUserName(post.userId);
         return null;
     })
+
+    const GetId=(ID,userId)=>
+    {
+        SetId(ID);
+
+        SetUserId(userId);
+
+        History.push(`/post/${ID}`);
+    }
 
 
     useEffect(()=>
@@ -89,10 +97,10 @@ const Posts = () => {
             <PostCardContainer>
                  {!isLoading ? 
                     PaggedPosts.map((post,index) => (
-                    <PostCard key={index}>
+                    <PostCard isPage={"/posts"} key={index} onClick={()=>GetId(post.id,post.userId)}>
                         <PostCard.User/>
                         <PostCard.UserName> {GetUserName(post.userId)}</PostCard.UserName>
-                        <PostCard.PostsContainer>
+                        <PostCard.PostsContainer >
                             <PostCard.Posts>{post.body}</PostCard.Posts>
                         </PostCard.PostsContainer>
                     </PostCard>

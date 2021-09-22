@@ -6,9 +6,9 @@ import ApiOrigin from "./Api";
    return  fetch(`${ApiOrigin}/posts`).then((result)=>result.json());
 }
 
-export const getPostById=(ID)=>
+export const getComments=()=>
 {
-    return fetch(`${ApiOrigin}/posts/${ID}`).then((result)=>result.json());
+    return fetch(`${ApiOrigin}/comments`).then((result)=>result.json());
 }
 
 export const getUseres=()=>

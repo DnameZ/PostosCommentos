@@ -2,15 +2,33 @@ import styled from 'styled-components';
 
 import { BreakPoints } from '../../Assets/Lib/generalStyles';
 
-export const CardContainer=styled.div`
-    display:flex;
-    cursor:pointer;
-    width:100%;
-    height:100%;
-    justify-content:center;
-    background: #FFFC58;
-    background: linear-gradient(225deg, transparent 20px, #FFFD88 1px);
-    align-self:center;
+export const CardContainer=styled.div.attrs(props=>({
+    className:props.className,
+}))`
+    
+    &.CardContainer
+    {
+        display:flex;
+        cursor:pointer;
+        width:70%;
+        height:70%;
+        justify-content:center;
+        background: #FFFC58;
+        background: linear-gradient(225deg, transparent 20px, #FFFD88 1px);
+        align-self:center;
+    }
+
+    &.CardContainerPost
+    {
+        display:flex;
+        cursor:pointer;
+        width:50%;
+        height:70%;
+        justify-content:center;
+        background: #FFFC58;
+        background: linear-gradient(225deg, transparent 50px, #FFFD88 1px);
+        align-self:center;
+    }
 
     @media screen and (${BreakPoints.mobileLarge}) {
         width:70%;
