@@ -81,7 +81,7 @@ export const SearchInputWrapper=styled.div`
     display:flex;
     position:absolute;
     width:20%;
-    height:15%;`;
+    height:10%;`;
 
 export const SearchInput=styled.input`
     align-self:flex-end;
@@ -91,5 +91,6 @@ export const SearchInput=styled.input`
     border-radius:26px;
     text-align:center;
     width:100%;
-    height:25%;`;
+    height:25%;`
+    ;
 

@@ -56,23 +56,24 @@ export const User=styled.img`
      }
 
     @media screen and (${BreakPoints.desktopLarge}) {
-       
+        height:45px;
     }
    `;
 
 export const UserName=styled.h3`
-    width:0%;
     position:absolute;
-    font-size:10px;
-    align-self:flex-end;
+    width:10%;
+    font-size:20px;
+    align-self:flex-start;
     @media screen and (${BreakPoints.desktopLarge}) {
         font-size:20px;
      }`;
 
 export const PostsContainer=styled.div`
     display:flex;
-    justify-content:center;
-    width:80%;
+    justify-content:space-evenly;
+    align-self:center;
+    width:100%;
     height:80%;
     word-wrap: break-word;
     word-break: break-word;
