@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+
+import React,{useContext} from 'react';
+import Posts from './Pages/PostsPage/Posts';
+import Post from "./Pages/PostPage/Post";
+import {Route,Switch, useLocation} from "react-router";
 
 function App() {
+
+  const location=useLocation();
+
+  const propsmessage="Hello from";
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch location={location} key={location.pathname}>
+        <Route exact path={"/posts"} render={()=><Posts propsmessage={propsmessage}/>}/>
+        <Route path={"/post/:id"}  render={()=><Post propsmessage={propsmessage}/>}/>
+      </Switch>
     </div>
   );
 }
