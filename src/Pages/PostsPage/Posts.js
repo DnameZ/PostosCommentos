@@ -6,15 +6,21 @@ import { getUseres } from '../../Api/GetPosts';
 import { PostCard } from '../../Components/PostCard/PostCard';
 import { useHistory } from 'react-router';
 
+import PropTypes from 'prop-types';
+
+
 import { 
     PostsPage,
     TitleWrapper,
     Title,
     PostCardContainer,
     SearchInputWrapper,
-    SearchInput } from './PostsStyle';
+    SearchInput,
+    PaginateContainer } from './PostsStyle';
 
-const Posts = () => {
+const Posts = ({propsmessage}) => {
+
+    const componentName="Posts" //ovdje nisam mogao dohvatiti bas Posts.name jer mi se array dolje vec zove Posts xD;
     const {SetUsers}=useContext(Context);
     const [isLoading,SetIsLoading]=useState(true);
     const [pageNum,SetPageNum]=useState(0);
@@ -24,6 +30,8 @@ const Posts = () => {
     const {GetUserName}=useContext(Context);
     const PageVisited=pageNum*TaskCardPerPage;
     const pageCount=Math.ceil(100/TaskCardPerPage);
+
+
     let [PaggedPosts]=useState([]);
     let {Posts,SetPosts}=useContext(Context);
     let {SetId}=useContext(Context);
@@ -85,13 +93,13 @@ const Posts = () => {
             await SetAllUsers();
         }
         fetchData();
+        console.log(propsmessage + " " + componentName);
     },[SetPosts],[SetAllUsers])
 
      PaggedPosts=filteredData.slice(PageVisited,PageVisited+TaskCardPerPage);
 
     return ( 
         <PostsPage>
-            <TitleWrapper> <Title>Postos</Title> </TitleWrapper>
             <SearchInputWrapper> <SearchInput placeholder={"Enter search keyword"} onChange={hadleInputChange} type="text"/> </SearchInputWrapper>
 
             <PostCardContainer>
@@ -110,21 +118,33 @@ const Posts = () => {
                  
             </PostCardContainer>
 
-
-            <ReactPaginate
-              previousLabel={"Back"}
-              nextLabel={"Next"}
-              pageCount={pageCount}
-              onPageChange={ChangePage}
-              containerClassName={"paggBttn"}
-              previousLinkClassName={"prevBttn"}
-              nextLinkClassName={"nextBttn"}
-              disabledClassName={"paggDis"}
-              activeClassName={"paggAcc"}
-              />
+            
+                <PaginateContainer>
+                    <ReactPaginate
+                    previousLabel={"Back"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={ChangePage}
+                    containerClassName={"paggBttn"}
+                    previousLinkClassName={"prevBttn"}
+                    nextLinkClassName={"nextBttn"}
+                    disabledClassName={"paggDis"}
+                    activeClassName={"paggAcc"}
+                    />
+             </PaginateContainer>
 
         </PostsPage>
      );
+}
+
+Posts.propTypes={
+    propsmessage:PropTypes.string.isRequired
+}
+
+PostCard.propTypes={
+    isPage:PropTypes.string.isRequired,
+    key:PropTypes.number.isRequired,
+    onClick:PropTypes.func.isRequired
 }
  
 export default Posts;

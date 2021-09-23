@@ -1,6 +1,7 @@
 import React,{useContext, useState,useEffect} from 'react';
 import { PostCard } from '../../Components/PostCard/PostCard';
 
+
 import { PostPage } from './PostStyle';
 import { Context } from '../../Context/Context';
 
@@ -8,8 +9,13 @@ import { CommentContainer,Comments,Email,Name } from './PostStyle';
 
 import { getComments } from '../../Api/GetPosts';
 
-const Post = () => {
+import PropTypes from 'prop-types';
 
+
+
+const Post = ({propsmessage}) => {
+    
+    const componentName=`${Post.name}`;
     const {GetUserName}=useContext(Context);
     const [Coments,SetComments]=useState([]);
     let {Posts}=useContext(Context);
@@ -40,6 +46,8 @@ const Post = () => {
     useEffect(()=>
     {
         getComments().then((result)=>SetComments(result));
+
+        console.log(propsmessage + " " + componentName);
     },[SetComments])
 
     return ( 
@@ -60,5 +68,18 @@ const Post = () => {
         </PostPage>
      );
 }
+
+
+Post.propTypes={
+    propsmessage:PropTypes.string.isRequired
+}
+
+PostCard.propTypes={
+    isPage:PropTypes.string.isRequired,
+    classes:PropTypes.string
+}
+
+
  
+
 export default Post;

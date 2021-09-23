@@ -5,17 +5,17 @@ import Posts from './Pages/PostsPage/Posts';
 import Post from "./Pages/PostPage/Post";
 import {Route,Switch, useLocation} from "react-router";
 
-import { Context } from './Context/Context';
-
 function App() {
 
   const location=useLocation();
 
+  const propsmessage="Hello from";
+
   return (
     <div className="App">
       <Switch location={location} key={location.pathname}>
-        <Route exact path={"/posts"} component={Posts}/>
-        <Route path={"/post/:id"} component={Post}/>
+        <Route exact path={"/posts"} render={()=><Posts propsmessage={propsmessage}/>}/>
+        <Route path={"/post/:id"}  render={()=><Post propsmessage={propsmessage}/>}/>
       </Switch>
     </div>
   );

@@ -10,12 +10,32 @@ export const CardContainer=styled.div.attrs(props=>({
     {
         display:flex;
         cursor:pointer;
-        width:70%;
-        height:70%;
+        width:100%;
+        height:125%;
         justify-content:center;
         background: #FFFC58;
         background: linear-gradient(225deg, transparent 20px, #FFFD88 1px);
         align-self:center;
+
+        @media screen and (${BreakPoints.mobileLarge}) {
+            width:70%;
+            height:100%;
+         }
+    
+        @media screen and (${BreakPoints.tablet}) {
+            width:90%;
+            height:120%;
+         }
+    
+        @media screen and (${BreakPoints.desktop}) {
+            width:90%;
+            height:120%;
+         }
+    
+        @media screen and (${BreakPoints.desktopLarge}) {
+           width:70%;
+           height:80%;
+        }
     }
 
     &.CardContainerPost
@@ -28,26 +48,6 @@ export const CardContainer=styled.div.attrs(props=>({
         background: #FFFC58;
         background: linear-gradient(225deg, transparent 50px, #FFFD88 1px);
         align-self:center;
-    }
-
-    @media screen and (${BreakPoints.mobileLarge}) {
-        width:70%;
-        height:100%;
-     }
-
-    @media screen and (${BreakPoints.tablet}) {
-        width:90%;
-        height:100%;
-     }
-
-    @media screen and (${BreakPoints.desktop}) {
-        width:90%;
-        height:90%;
-     }
-
-    @media screen and (${BreakPoints.desktopLarge}) {
-       width:70%;
-       height:80%;
     }
     `;
 
@@ -66,11 +66,11 @@ export const User=styled.img`
      }
 
     @media screen and (${BreakPoints.tablet}) {
-        height:40px;
+        height:30px;
      }
 
     @media screen and (${BreakPoints.desktop}) {
-        height:50px;
+        height:60px;
      }
 
     @media screen and (${BreakPoints.desktopLarge}) {
@@ -80,10 +80,11 @@ export const User=styled.img`
 
 export const UserName=styled.h3`
     position:absolute;
-    width:10%;
-    font-size:20px;
+    width:20%;
+    font-size:18px;
     align-self:flex-start;
     @media screen and (${BreakPoints.desktopLarge}) {
+        width:10%;
         font-size:20px;
      }`;
 
@@ -116,15 +117,18 @@ export const PostsContainer=styled.div`
 
 export const Posts=styled.h4`
     line-height:20px;
-    font-size:14px;
+    font-size:10px;
 
     @media screen and (${BreakPoints.tablet}) {
         font-size:16px;
+        line-height:15px;
      }
      
     
     @media screen and (${BreakPoints.desktop}) {
         font-size:21px;
+        line-height:20px;
+
      }
      
      @media screen and (${BreakPoints.desktopLarge}) {

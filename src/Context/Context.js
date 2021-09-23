@@ -36,5 +36,14 @@ const ContextProvider = ({children}) => {
         </Context.Provider>
      );
 }
+
+    Context.Provider.propTypes={
+        UserId:PropTypes.number,
+        GetUserName:PropTypes.func,
+        Posts:PropTypes.array,
+        Users:PropTypes.array,
+        Id:PropTypes.number,
+        children:PropTypes.element.isRequired   
+    }
  
 export {Context,ContextProvider}
